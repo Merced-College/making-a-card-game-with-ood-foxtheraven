@@ -44,10 +44,30 @@ public class Card {
         return cardImage;
     }
 
+    //Basic toString method with an explicit override.
+    //Note: While game functionality is probably better to focus on,
+    //I kind of want to improve this with a better print statement.
+    //It would likely take a good deal of String manipulation, though.
+    //For example, printing "Two of Hearts" would be... not... easy?
+    //But it would be a "nicer" print statement. -XQ
     @Override 
     public String toString() {
         return cardSuit + ", " + cardName + ", " + cardValue + "," + cardImage;
     }
+
+    /*
+        Note by XQ on Sep 23, 3:30 PM:
+    After some testing and research on what exactly a two-of-a-kind is,
+    this equals method is definitely not working as intended. A pair has the same rank,
+    ie two sevens, two kings, etc. – so we would need to check the cardName
+    specifically. Comparing the entire object won't work because two of the 
+    same exact card object will not exist, as every card in the deck is unique.
+
+    I also repeatedly ran the code to test if this really isn't working,
+    and a case of a two of hearts and two of diamonds being pulled showed
+    it isn't – the false pair statement was still printed, even though
+    two twos makes a pair.
+    */
 
     @Override
     public boolean equals(Object obj) {

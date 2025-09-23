@@ -1,4 +1,8 @@
-package cardGame;
+//Xandra Quevedo and Brenda Romero
+//9/23/25
+//Card game with OOD
+
+//package cardGame;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,12 +11,15 @@ import java.util.Scanner;
 
 public class CardGame {
 
+	//Initialize array lists for a card deck and the player's cards
 	private static ArrayList<Card> deckOfCards = new ArrayList<Card>();
 	private static ArrayList<Card> playerCards = new ArrayList<Card>();
 
-
+	//main method
 	public static void main(String[] args) {
-
+		
+		//A try-catch is used to read from the cards.txt file, to ensure
+		//that an error is printed if the file does not exist
 		Scanner input = null;
 		try {
 			input = new Scanner(new File("cards.txt"));
@@ -21,7 +28,8 @@ public class CardGame {
 			System.out.println("error");
 			e.printStackTrace();
 		}
-
+		
+		//This makes a new card
 		while(input.hasNext()) {
 			String[] fields  = input.nextLine().split(",");
 			//	public Card(String cardSuit, String cardName, int cardValue, String cardPicture) {
@@ -48,6 +56,7 @@ public class CardGame {
 
 	}//end main
 
+	//shuffle method
 	public static void shuffle() {
 
 		//shuffling the cards by deleting and reinserting

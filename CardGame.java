@@ -50,11 +50,10 @@ public class CardGame {
 		shuffle();
 
 		//Uncommented this to exemplify the hearts and diamonds bug.
-		/*
-		for(Card c: deckOfCards)
+		for(Card c: deckOfCards) {
 			System.out.println(c);
+		}
 			System.out.println();
-		*/
 
 		//deal the player 4 cards
 		for(int i = 0; i < 4; i++) {

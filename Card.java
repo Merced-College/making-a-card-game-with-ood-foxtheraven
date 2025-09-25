@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Card {
     //data variables
     //suit, name, value, image name
@@ -55,7 +57,14 @@ public class Card {
         return cardSuit + ", " + cardName + ", " + cardValue + "," + cardImage;
     }
 
-    /*
+    //This equals method specifically compares card names to identify pairs.
+    public boolean equals(Card card) {
+        //The this card is what comes before the .equals,
+        //while card is the method argument.
+        return this.cardName.equals(card.cardName);
+    }
+
+     /*
         Note by XQ on Sep 23, 3:30 PM:
     After some testing and research on what exactly a two-of-a-kind is,
     this equals method is definitely not working as intended. A pair has the same rank,
@@ -69,6 +78,8 @@ public class Card {
     two twos makes a pair.
     */
 
+    //Edit by XQ on Sep 25, 7:55 AM: Commenting out the below method to rewrite it
+    /*
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -79,4 +90,5 @@ public class Card {
                 cardName.equals(other.cardName);
         
     }
+    */
 }

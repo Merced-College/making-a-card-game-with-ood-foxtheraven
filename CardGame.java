@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class CardGame {
 
@@ -48,17 +49,20 @@ public class CardGame {
 
 		//Calls a shuffle method to shuffle the deck. -XQ
 		shuffle();
+	
+		//This can be uncommented to see the oddly shuffled deck.
+		//for(Card c: deckOfCards) {
+		//	System.out.println(c);
+		//}
+		//	System.out.println();
 
-		//Uncommented this to exemplify the hearts and diamonds bug.
-		for(Card c: deckOfCards) {
-			System.out.println(c);
-		}
-			System.out.println();
-
-		//deal the player 4 cards
-		for(int i = 0; i < 4; i++) {
+		//Deal the player 5 cards, as is standard in Poker
+		for(int i = 0; i < 5; i++) {
+			//Edit on Sep 25: Use a random to get a slightly more actually random player card hand. -XQ
+			Random random = new Random();
+			int index = random.nextInt(deckOfCards.size());
 			//A card is removed from the deck and added to the player's cards. -XQ
-			playerCards.add(deckOfCards.remove(i));
+			playerCards.add(deckOfCards.remove(index));
 		}
 		
 		//The player's cards are printed. -XQ
@@ -88,7 +92,10 @@ public class CardGame {
 	}//end main
 
 	//Shuffle method
+	//Edit on Sep 25: Used Random instead of Math.random, although this doesn't actually
+	//entirely fix the problem. -XQ
 	public static void shuffle() {
+		Random random = new Random();
 
 		//shuffling the cards by deleting and reinserting
 		for (int i = 0; i < deckOfCards.size(); i++) {
@@ -99,7 +106,7 @@ public class CardGame {
 			This is multiplied by the size of the deck, 52, 
 			to get a random card index. -XQ
 			*/
-			int index = (int) (Math.random() * deckOfCards.size());
+			int index = random.nextInt(deckOfCards.size());
 
 			//A new Card object, c, equals a now-removed Card.
 			//(Note that the .remove method returns the removed card, which is why this works.) -XQ

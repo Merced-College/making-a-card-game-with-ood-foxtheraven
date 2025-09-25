@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Card {
     //data variables
     //suit, name, value, image name

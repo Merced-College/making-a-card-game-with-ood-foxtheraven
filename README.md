@@ -19,5 +19,5 @@ Notes from XQ:
 
 - On Sep 23, 4:00 PM - Error in .equals:
     - So .equals in Card.java is definitely returning a boolean. But it's always returning false (see comments above the equals method in Card.java for elaboration), and moreover, it's just not comparing what it should for a card pair method.
-- On Sep 25, 8:12 AM - Bug fix!
+- On Sep 25, 8:12 AM - .equals bug fix!
     - I was able to rewrite a very simple, new equals method that works as intended. Now, when two card's names are the same (NOT their values, because a queen and king are both 10 but are not a pair!), the method returns true.
